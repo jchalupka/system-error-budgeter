@@ -1,3 +1,3 @@
 #System Error Budgeter
 
-A system error budgeter
+A system error budgeting bot
