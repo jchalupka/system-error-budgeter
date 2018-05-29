@@ -1,4 +1,5 @@
 const Sentry = require('sentry-api').Client;
+require('dotenv');
 
 // Create a new client using your Sentry DSN.
 const sentry = new Sentry('https://abc123:@app.getsentry.com');
