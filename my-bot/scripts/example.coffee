@@ -23,10 +23,10 @@ module.exports = (robot) ->
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
   #
-  # lulz = ['lol', 'rofl', 'lmao']
-  #
-  # robot.respond /lulz/i, (res) ->
-  #   res.send res.random lulz
+  lulz = ['lol', 'rofl', 'lmao']
+  
+  robot.respond /lulz/i, (res) ->
+    res.send res.random lulz
   #
   # robot.topic (res) ->
   #   res.send "#{res.message.text}? That's a Paddlin'"
@@ -53,26 +53,26 @@ module.exports = (robot) ->
   #     res.send "Who you calling 'slow'?"
   #   , 60 * 1000
   #
-  # annoyIntervalId = null
-  #
-  # robot.respond /annoy me/, (res) ->
-  #   if annoyIntervalId
-  #     res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
-  #     return
-  #
-  #   res.send "Hey, want to hear the most annoying sound in the world?"
-  #   annoyIntervalId = setInterval () ->
-  #     res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
-  #   , 1000
-  #
-  # robot.respond /unannoy me/, (res) ->
-  #   if annoyIntervalId
-  #     res.send "GUYS, GUYS, GUYS!"
-  #     clearInterval(annoyIntervalId)
-  #     annoyIntervalId = null
-  #   else
-  #     res.send "Not annoying you right now, am I?"
-  #
+  annoyIntervalId = null
+  
+  robot.respond /annoy me/i, (res) ->
+    if annoyIntervalId
+      res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
+      return
+  
+    res.send "Hey, want to hear the most annoying sound in the world?"
+    annoyIntervalId = setInterval () ->
+      res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
+    , 1000
+  
+  robot.respond /unannoy me/i, (res) ->
+    if annoyIntervalId
+      res.send "GUYS, GUYS, GUYS!"
+      clearInterval(annoyIntervalId)
+      annoyIntervalId = null
+    else
+      res.send "Not annoying you right now, am I?"
+  
   #
   # robot.router.post '/hubot/chatsecrets/:room', (req, res) ->
   #   room   = req.params.room
